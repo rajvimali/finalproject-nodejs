@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Add Brand</title>
+</head>
+<body>
+  <h1>Add Brand</h1>
+
+  <%- include('../partials/header') %>
+  <div class="col-4 m-auto">
+  <h1>Manage Brands</h1>
+  <form action="/manager/brands" method="POST">
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="text" id="form2Example1" name="name" class="form-control" required/>
+      <label class="form-label" for="form2Example1">Subcategory</label>
+    </div>
+    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Add Brand</button>
+  </form>
+  <table class="table table-hover">
+    <tr>
+      <th>Brand Name</th>
+    </tr>
+    <% brands.forEach(brand => { %>
+      <tr>
+        <td><%= brand.name %></td>
+      </tr>
+    <% }) %>
+  </table>
+</div>
+</body>
+</html>

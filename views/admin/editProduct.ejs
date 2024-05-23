@@ -1,0 +1,44 @@
+<!-- views/admin/editProduct.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <div class="col-6 m-auto">
+    <h1>Edit Product</h1>
+    <form action="/admin/products/edit/<%= product._id %>" method="POST">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" name="name" value="<%= product.name %>" class="form-control mb-2" required>
+        <label for="image" class="form-label">Image Url:</label>
+        <input type="text" id="image" name="image" value="<%= product.image %>" class="form-control mb-2" required>
+        <label for="price" class="form-label">Price:</label>
+        <input type="number" id="price" name="price" value="<%= product.price %>" class="form-control mb-2" required>
+        <label for="category" class="form-label">Category:</label>
+        <select id="category" name="category" class="form-select" required>
+            <% categories.forEach(category => { %>
+                <option value="<%= category._id %>" <%= category._id.equals(product.category._id) ? 'selected' : '' %>><%= category.name %></option>
+            <% }) %>
+        </select>
+        <label for="subcategory" class="form-label">Subcategory:</label>
+        <select id="subcategory" name="subcategory" class="form-select" required>
+            <% subcategories.forEach(subcategory => { %>
+                <option value="<%= subcategory._id %>" <%= subcategory._id.equals(product.subcategory._id) ? 'selected' : '' %>><%= subcategory.name %></option>
+            <% }) %>
+        </select>
+        <label for="brand" class="form-label">Brand:</label>
+        <select id="brand" name="brand" required class="form-select">
+            <% brands.forEach(brand => { %>
+                <option value="<%= brand._id %>" <%= brand._id.equals(product.brand._id) ? 'selected' : '' %>><%= brand.name %></option>
+            <% }) %>
+        </select>
+        <button type="submit" class="btn btn-primary my-3">Update</button>
+    </form>
+    <a href="/admin/products">Back to Products</a>
+</div>
+    <%- include('../partials/footer') %>
+</body>
+</html>

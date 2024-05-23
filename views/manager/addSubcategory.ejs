@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Add Subcategory</title>
+</head>
+<body>
+
+  <%- include('../partials/header') %>
+  <div class="col-6 m-auto">
+    <h1>Manage Subcategories</h1>
+    <form action="/manager/subcategories" method="POST">
+      <div data-mdb-input-init class="form-outline mb-4">
+        <input type="text" id="form2Example1" name="name" class="form-control" required/>
+        <label class="form-label" for="form2Example1">Subcategory</label>
+      </div>
+      <select name="category" class="form-select" required>
+        <% categories.forEach(category => { %>
+          <option value="<%= category._id %>"><%= category.name %></option>
+        <% }) %>
+      </select>
+      <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block my-4">Add Subcategory</button>
+    </form>
+    <table class="table table-hover">
+      <tr>
+        <th>Subcategories</th>
+        <th>Categories</th>
+      </tr>
+      <% subcategories.forEach(subcategory => { %>
+        <tr>
+          <td><%= subcategory.name %></td>
+          <td><%= subcategory.category.name %></td>
+        </tr>
+      <% }) %>
+    </table>
+  </div>
+</body>
+</html>

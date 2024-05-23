@@ -1,0 +1,27 @@
+
+  <%- include('../partials/header') %>
+  <div class="col-4 m-auto">
+  <h1>Login</h1>
+
+  
+  <form action="/auth/login" method="POST">
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="email" id="form2Example1" name="email" class="form-control" />
+      <label class="form-label" for="form2Example1">Email address</label>
+    </div>
+  
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="password" id="form2Example2" class="form-control" name="password"/>
+      <label class="form-label" for="form2Example2">Password</label>
+    </div>
+
+    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Sign in</button>
+  
+    <div class="text-center">
+      <p>Not a member? <a href="/auth/signup">Signup</a></p>
+    </div>
+  </form>
+</div>
+  <%- include('../partials/footer') %>
+</body>
+</html>

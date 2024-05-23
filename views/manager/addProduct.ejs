@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Product</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <div class="col-4 m-auto">
+    <h1 class="text-center">Manage Products</h1>
+  <form action="/manager/products" method="POST">
+    <input type="text" name="name" placeholder="Product Name" required class="form-control mb-2">
+    <input type="text" name="image" placeholder="Image Url" required class="form-control mb-2">
+    <input type="number" name="price" placeholder="Product Price" required class="form-control mb-2">
+    <select name="category" class="form-select mb-2" required>
+      <% categories.forEach(category => { %>
+        <option value="<%= category._id %>"><%= category.name %></option>
+      <% }) %>
+    </select>
+    <select name="subcategory" class="form-select mb-2" required>
+      <% subcategories.forEach(subcategory => { %>
+        <option value="<%= subcategory._id %>"><%= subcategory.name %></option>
+      <% }) %>
+    </select>
+    <select name="brand" class="form-select mb-2" required>
+      <% brands.forEach(brand => { %>
+        <option value="<%= brand._id %>"><%= brand.name %></option>
+      <% }) %>
+    </select>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+  </form>
+</div>
+  <table class="table table-hover mt-4">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th>Brand</th>
+      <th>Category</th>
+      <th>SubCategory</th>
+    </tr>
+    <% products.forEach(product => { %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><img src="<%= product.image %>" width="120"></td>
+        <td><%= product.brand.name %></td>
+        <td><%= product.category.name %></td>
+        <td><%= product.subcategory.name %></td>
+
+      </tr>
+    <% }) %>
+  </table>
+  <%- include('../partials/footer') %>
+</body>
+</html>
