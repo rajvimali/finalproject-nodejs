@@ -10,7 +10,7 @@ const seedAdmin = async () => {
   });
 
   const salt = await bcrypt.genSalt(10);
-  // const hashedPassword = await bcrypt.hash('admin@123', salt);
+  // const hashedPassword = await bcrypt.hash('123123', salt);
 
   const admin = new User({
     username: "admin",

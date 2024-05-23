@@ -1,49 +1,63 @@
-
-  
-  <!DOCTYPE html>
-  <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-info">
+      <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-              </li>
+               <button class="border-0 "> <a class="nav-link active text-primary" aria-current="page" href="/">Home</a>
+              </li></button>
               <% if (user) { %>
               <li class="nav-item">
-                <a class="nav-link" href="/auth/logout">Logout</a>
-              </li>
+               <button class="btn btn-danger"> <a class="nav-link" href="/auth/logout">Logout</a>
+              </li></button>
               <% if (user.role === 'admin') { %>
               <li class="nav-item">
-                <a class="nav-link" href="/admin/dashboard">Admin Dashboard</a>
-              </li>
+               <button> <a class="nav-link" href="/admin/dashboard">Admin Dashboard</a>
+              </li></button>
               <% } else if (user.role === 'manager') { %>
               <li class="nav-item">
-                <a class="nav-link " href="/manager/dashboard">Manager Dashboard</a>
+               <button> <a class="nav-link" href="/manager/dashboard"
+                  >Manager Dashboard</a
+                ></button>
               </li>
+              <% } %> <% } else { %>
+              <li class="nav-item">
+               <button class="btn btn-primary p-0 ms-2"> <a class="nav-link text-white" href="/auth/login">Login</a>
+              </li></button>
+              <li class="nav-item">
+               <button class="btn btn-secondary p-0 ms-2"> <a class="nav-link text-white" href="/auth/signup">Signup</a>
+              </li></button>
               <% } %>
-              <% } else { %>
-                <li class="nav-item">
-                  <a class="nav-link " href="/auth/login">Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="/auth/signup">Signup</a>
-                </li>
-                <% } %>
             </ul>
           </div>
         </div>
       </nav>
     </header>
+  </body>
+</html>
