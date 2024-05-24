@@ -20,7 +20,7 @@ const seedAdmin = async () => {
   });
 
   await admin.save();
-  console.log("User created");
+  console.log("Admin user created");
   mongoose.disconnect();
 };
 
