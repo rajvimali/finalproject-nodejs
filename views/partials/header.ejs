@@ -34,11 +34,11 @@
               </li></button>
               <% if (user) { %>
               <li class="nav-item">
-               <button class="btn btn-danger"> <a class="nav-link" href="/auth/logout">Logout</a>
+               <button class="btn btn-danger p-0 ms-2 "> <a class="nav-link text-white" href="/auth/logout">Logout</a>
               </li></button>
               <% if (user.role === 'admin') { %>
               <li class="nav-item">
-               <button> <a class="nav-link" href="/admin/dashboard">Admin Dashboard</a>
+               <button class="btn btn-info p-0 ms-2"> <a class="nav-link text-white" href="/admin/dashboard">Admin Dashboard</a>
               </li></button>
               <% } else if (user.role === 'manager') { %>
               <li class="nav-item">

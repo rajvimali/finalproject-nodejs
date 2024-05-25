@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Manage Subcategories</title>
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-  <%- include('../partials/header') %>
-  <div class="col-6 m-auto">
-  <h1>Manage Subcategories</h1>
-  <form action="/admin/subcategories" method="POST">
-    <div data-mdb-input-init class="form-outline mb-4">
-      <input type="text" id="form2Example1" name="name" class="form-control" required/>
-      <label class="form-label" for="form2Example1">Subcategory</label>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manage Subcategories</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+    <div class="col-4 m-auto mt-3">
+      <h1 class="text-center mb-4">Manage Subcategories</h1>
+      <form action="/admin/subcategories" method="POST">
+        <div class="border rounded shadow p-4">
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="form2Example1">Name :</label>
+            <input
+              type="text"
+              id="form2Example1"
+              name="name"
+              class="form-control"
+              placeholder="Enter subcategory"
+              required
+            />
+          </div>
+          <select name="category" class="form-select mb-3" required>
+            <% categories.forEach(category => { %>
+            <option value="<%= category._id %>"><%= category.name %></option>
+            <% }) %>
+          </select>
+          <button
+            type="submit"
+            data-mdb-button-init
+            data-mdb-ripple-init
+            class="btn btn-primary form-control btn-block"
+          >
+            Add Subcategory
+          </button>
+        </div>
+      </form>
     </div>
-    <select name="category" class="form-select" required>
-      <% categories.forEach(category => { %>
-        <option value="<%= category._id %>"><%= category.name %></option>
-      <% }) %>
-    </select>
-    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Add Subcategory</button>
-  </form>
-  <table class="table table-hover">
-    <tr>
-      <th>Subcategories</th>
-      <th>Categories</th>
-    </tr>
-    <% subcategories.forEach(subcategory => { %>
-      <tr>
-        <td><%= subcategory.name %></td>
-        <td><%= subcategory.category.name %></td>
-      </tr>
-    <% }) %>
-  </table>
-</div>
-  <%- include('../partials/footer') %>
-</body>
+    <div class="col-6 m-auto mt-3">
+      <table class="table text-center table-striped table-hover">
+        <tr>
+          <th>Subcategories</th>
+          <th>Categories</th>
+        </tr>
+        <% subcategories.forEach(subcategory => { %>
+        <tr>
+          <td><%= subcategory.name %></td>
+          <td><%= subcategory.category.name %></td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+    <%- include('../partials/footer') %>
+  </body>
 </html>

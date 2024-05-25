@@ -1,47 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Manage Managers</title>
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-  <%- include('../partials/header') %>
-  <div class="col-6 m-auto">
-  <h1>Manage Managers</h1>
-  <form action="/admin/managers" method="POST">
-    <div data-mdb-input-init class="form-outline mb-4">
-      <input type="text" id="form2Example1" name="username" class="form-control" />
-      <label class="form-label" for="form2Example1">Name</label>
-    </div>
-    <div data-mdb-input-init class="form-outline mb-4">
-      <input type="email" id="form2Example1" name="email" class="form-control" />
-      <label class="form-label" for="form2Example1">Email address</label>
-    </div>
-  
-    <div data-mdb-input-init class="form-outline mb-4">
-      <input type="password" id="form2Example2" class="form-control" name="password"/>
-      <label class="form-label" for="form2Example2">Password</label>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manage Managers</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+    <div class="col-4 m-auto mt-3">
+      <h1 class="text-center">Manage Managers</h1>
+      <form action="/admin/managers" method="POST">
+        <div class="border rounded shadow p-4 mt-3">
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="form2Example1">Name :</label>
+            <input
+              type="text"
+              id="form2Example1"
+              name="username"
+              class="form-control"
+              placeholder="Enter name"
+            />
+          </div>
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="form2Example1">Email :</label>
+            <input
+              type="email"
+              id="form2Example1"
+              name="email"
+              class="form-control"
+              placeholder="Enter email"
+            />
+          </div>
 
-    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Add Managers</button>
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="form2Example2">Password :</label>
+            <input
+              type="password"
+              id="form2Example2"
+              class="form-control"
+              name="password"
+              placeholder="Enter password"
+            />
+          </div>
 
-  </form>
-    <table class="table table-hover">
-      <tr>
-        <th>User Name</th>
-        <th>Email</th>
-      </tr>
-      <% managers.forEach(manager => { %>
+          <button
+            type="submit"
+            data-mdb-button-init
+            data-mdb-ripple-init
+            class="btn btn-primary form-control btn-block"
+          >
+            Add Managers
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-8 m-auto mt-3">
+      <table class="table text-center table-striped table-hover mt-4">
+        <tr>
+          <th>Manager Name</th>
+          <th>Email</th>
+        </tr>
+        <% managers.forEach(manager => { %>
         <tr>
           <td><%= manager.username %></td>
           <td><%= manager.email %></td>
         </tr>
 
-      <% }) %>
-    </table>
-
-</div>
-  <%- include('../partials/footer') %>
-</body>
+        <% }) %>
+      </table>
+    </div>
+    <%- include('../partials/footer') %>
+  </body>
 </html>

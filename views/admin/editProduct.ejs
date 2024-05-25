@@ -8,9 +8,11 @@
 </head>
 <body>
     <%- include('../partials/header') %>
-    <div class="col-6 m-auto">
-    <h1>Edit Product</h1>
+    <div class="col-6 m-auto mt-3">
+    <h1 class="text-center mb-3">Edit Product</h1>
     <form action="/admin/products/edit/<%= product._id %>" method="POST">
+        <div class="border rounded shadow p-4">
+
         <label for="name" class="form-label">Name:</label>
         <input type="text" id="name" name="name" value="<%= product.name %>" class="form-control mb-2" required>
         <label for="image" class="form-label">Image Url:</label>
@@ -35,9 +37,11 @@
                 <option value="<%= brand._id %>" <%= brand._id.equals(product.brand._id) ? 'selected' : '' %>><%= brand.name %></option>
             <% }) %>
         </select>
-        <button type="submit" class="btn btn-primary my-3">Update</button>
+        <button type="submit" class="btn form-control btn-primary my-3">Update</button>
+    </div>
     </form>
-    <a href="/admin/products">Back to Products</a>
+    <button class="btn btn-secondary  mt-3">
+    <a href="/admin/products" class="text-decoration-none text-white"> <<< Back to Products</a></button>
 </div>
     <%- include('../partials/footer') %>
 </body>

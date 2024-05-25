@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-  <%- include('../partials/header') %>
-  <div class="col-4 m-auto">
-  <h1>Admin Dashboard</h1>
-  <ul class="list-group">
-    <li class="list-group-item"><a href="/admin/managers" class="text-decoration-none text-reset">Manage Managers</a></li>
-    <li class="list-group-item"><a href="/admin/categories" class="text-decoration-none text-reset">Manage Categories</a></li>
-    <li class="list-group-item"><a href="/admin/subcategories" class="text-decoration-none text-reset">Manage Subcategories</a></li>
-    <li class="list-group-item"><a href="/admin/brands" class="text-decoration-none text-reset">Manage Brands</a></li>
-    <li class="list-group-item"><a href="/admin/products" class="text-decoration-none text-reset">Manage Products</a></li>
-  </ul>
-</div>
-  <%- include('../partials/footer') %>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+    <div class="col-4 m-auto mt-3">
+      <h1 class="text-center">Admin Dashboard</h1>
+      <ul class="list-group">
+        <div class="rounded shadow p-4">
+          <li class="list-group-item">
+            <a href="/admin/managers" class="text-decoration-none text-reset"
+              >1. Managers</a
+            >
+          </li>
+          <li class="list-group-item">
+            <a href="/admin/categories" class="text-decoration-none text-reset"
+              >2. Categories</a
+            >
+          </li>
+          <li class="list-group-item">
+            <a
+              href="/admin/subcategories"
+              class="text-decoration-none text-reset"
+              >3. Subcategories</a
+            >
+          </li>
+          <li class="list-group-item">
+            <a href="/admin/brands" class="text-decoration-none text-reset"
+              >4. Brands</a
+            >
+          </li>
+          <li class="list-group-item">
+            <a href="/admin/products" class="text-decoration-none text-reset"
+              >5. Products</a
+            >
+          </li>
+        </div>
+      </ul>
+    </div>
+    <%- include('../partials/footer') %>
+  </body>
 </html>

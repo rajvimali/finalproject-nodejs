@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Manage Categories</title>
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-  <%- include('../partials/header') %>
-  <div class="col-4 m-auto">
-  <h1>Manage Categories</h1>
-  <form action="/admin/categories" method="POST">
-    <div data-mdb-input-init class="form-outline mb-4">
-      <input type="text" id="form2Example1" name="name" class="form-control" required/>
-      <label class="form-label" for="form2Example1">Category Name</label>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manage Categories</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+    <div class="col-4 m-auto mt-3">
+      <h1 class="text-center mb-3">Manage Categories</h1>
+      <form action="/admin/categories" method="POST">
+        <div class="border rounded shadow p-4">
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="form2Example1">Name :</label>
+            <input
+              type="text"
+              id="form2Example1"
+              name="name"
+              class="form-control"
+              placeholder="Enter category"
+              required
+            />
+          </div>
+          <!-- <input type="text" name="name" placeholder="Category Name" class="form-control" required> -->
+          <button
+            type="submit"
+            data-mdb-button-init
+            data-mdb-ripple-init
+            class="btn btn-primary form-control btn-block"
+          >
+            Add Category
+          </button>
+        </div>
+      </form>
     </div>
-    <!-- <input type="text" name="name" placeholder="Category Name" class="form-control" required> -->
-    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Add Category</button>
-  </form>
-  <table class="table table-hover">
-    <tr>
-      <th>Categories Name</th>
-    </tr>
-    <% categories.forEach(category => { %>
-      <tr>
-        <td><%= category.name %></td>
-      </tr>
-    <% }) %>
-  </table>
-</div>
-  <%- include('../partials/footer') %>
-</body>
+    <div class="col-5 m-auto mt-4">
+      <table class="table table-hover table-striped text-center">
+        <tr>
+          <th>Categories Name</th>
+        </tr>
+        <% categories.forEach(category => { %>
+        <tr>
+          <td><%= category.name %></td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+    <%- include('../partials/footer') %>
+  </body>
 </html>
